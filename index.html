@@ -3,35 +3,43 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>KrisCarDetail | Auto Detailing & Cennik</title>
+<title>KrisCarDetail | Mega Dopamina</title>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800;900&display=swap" rel="stylesheet">
 <style>
 :root{
---bg:#020617;--blue:#2563eb;--neon:#60a5fa;--glass:rgba(255,255,255,.07);
---text:#e5e7eb;--green:#22c55e;--orange:#f97316;
+--bg:#020617;
+--blue:#2563eb;
+--neon:#60a5fa;
+--glass:rgba(255,255,255,.07);
+--text:#e5e7eb;
+--green:#22c55e;
+--orange:#f97316;
+--red:#f43f5e;
 }
 *{margin:0;padding:0;box-sizing:border-box;font-family:Inter,sans-serif}
 html{scroll-behavior:smooth}
-body{background:radial-gradient(circle at top,#0b1228,#020617 70%);color:var(--text);overflow-x:hidden;cursor:none;position:relative;}
+body{background:radial-gradient(circle at top,#0b1228,#020617 70%);color:var(--text);overflow-x:hidden;position:relative;}
 
-/* CUSTOM CURSOR */
-.cursor{position:fixed;width:20px;height:20px;border:2px solid var(--neon);border-radius:50%;pointer-events:none;z-index:9999;transform:translate(-50%,-50%);transition:.1s}
-.cursor.active{transform:translate(-50%,-50%) scale(1.7);background:rgba(96,165,250,.15)}
+/* CURSOR */
+.cursor{position:fixed;width:22px;height:22px;border:2px solid var(--neon);border-radius:50%;pointer-events:none;z-index:9999;transform:translate(-50%,-50%);transition:.1s}
+.cursor.active{transform:translate(-50%,-50%) scale(1.8);background:rgba(96,165,250,.15)}
 
 /* NAV */
-nav{position:fixed;top:0;width:100%;padding:18px 40px;display:flex;justify-content:space-between;align-items:center;background:rgba(2,6,23,.9);backdrop-filter:blur(20px);z-index:999}
+nav{position:fixed;top:0;width:100%;padding:16px 40px;display:flex;justify-content:space-between;align-items:center;background:rgba(2,6,23,.95);backdrop-filter:blur(20px);z-index:999}
 nav strong{font-size:22px;font-weight:900}
-nav a{margin-left:28px;color:white;text-decoration:none;opacity:.6;transition:.3s}
+nav a{margin-left:28px;color:white;text-decoration:none;opacity:.7;transition:.3s}
 nav a.active,nav a:hover{opacity:1;color:var(--neon)}
 
 /* HERO */
-header{min-height:80vh;display:flex;align-items:center;justify-content:center;text-align:center;position:relative;overflow:hidden;background:#111}
-.hero{max-width:860px;padding:0 20px;position:relative;z-index:1}
+header{min-height:80vh;display:flex;align-items:center;justify-content:center;text-align:center;position:relative;overflow:hidden}
+header::before{content:"";position:absolute;inset:-20%;background:radial-gradient(circle at top,var(--neon),transparent 40%),radial-gradient(circle at bottom,var(--blue),transparent 50%);opacity:.3;animation:float 14s infinite alternate;z-index:0}
+@keyframes float{to{transform:translateY(-80px)}}
+.hero{max-width:900px;padding:0 20px;position:relative;z-index:1}
 .hero h1{font-size:clamp(48px,7vw,96px);font-weight:900;letter-spacing:-2px}
 .hero span{background:linear-gradient(135deg,var(--neon),#93c5fd);-webkit-background-clip:text;color:transparent}
 .hero p{margin:28px auto;font-size:22px;opacity:.9}
 .btn{display:inline-block;padding:18px 60px;border-radius:80px;background:linear-gradient(135deg,var(--blue),var(--neon));color:white;font-weight:800;text-decoration:none;box-shadow:0 30px 90px #2563ebaa;transition:.3s;cursor:pointer}
-.btn:hover{transform:translateY(-4px);}
+.btn:hover{transform:translateY(-5px);box-shadow:0 0 40px var(--neon)}
 
 /* SECTIONS */
 section{max-width:1300px;margin:auto;padding:120px 20px}
@@ -39,15 +47,27 @@ h2{text-align:center;font-size:52px;margin-bottom:60px;background:linear-gradien
 
 /* CENNIK */
 .pricing{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:24px;margin-top:40px}
-.price-card{background:var(--glass);border-radius:24px;padding:24px;backdrop-filter:blur(20px);transition:.3s;cursor:default}
-.price-card:hover{transform:translateY(-6px);box-shadow:0 0 30px var(--neon)}
+.price-card{background:var(--glass);border-radius:24px;padding:24px;backdrop-filter:blur(20px);transition:.3s;cursor:pointer;text-align:center}
+.price-card:hover{transform:translateY(-8px);box-shadow:0 0 30px var(--neon)}
 .price-card h4{font-size:20px;color:var(--orange);margin-bottom:8px}
 .price-card span{font-weight:700;color:var(--green);font-size:18px;display:block;margin-top:6px}
 
-/* IMAGE SECTIONS */
-.car-img{width:100%;border-radius:20px;box-shadow:0 0 30px #000;}
+/* STATYSTYKI */
+.stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:40px;margin-top:60px;text-align:center}
+.stat h3{font-size:48px;font-weight:900;color:var(--neon)}
+.stat p{opacity:.8}
 
-/* FORM */
+/* OPINIE */
+.testimonials{display:flex;overflow-x:auto;gap:24px;padding:20px 0}
+.testimonial{min-width:280px;background:var(--glass);padding:24px;border-radius:24px;backdrop-filter:blur(20px);transition:.3s}
+.testimonial:hover{transform:translateY(-6px);box-shadow:0 0 30px var(--neon)}
+.testimonial p{font-size:16px;line-height:1.5;opacity:.9}
+.testimonial .stars{color:gold;font-size:18px;margin-bottom:10px}
+
+/* GALERIA AUT */
+.car-img{width:100%;border-radius:20px;box-shadow:0 0 30px #000;margin-bottom:6px}
+
+/* FORMULARZ */
 form{max-width:520px;margin:40px auto 0;display:grid;gap:16px}
 input,textarea{padding:16px;border:none;border-radius:12px;font-size:16px}
 button{padding:16px;border:none;border-radius:50px;background:linear-gradient(135deg,var(--blue),var(--neon));color:white;font-weight:800;cursor:pointer;transition:.3s}
@@ -66,7 +86,9 @@ footer{text-align:center;padding:60px 20px;opacity:.7}
 <strong>KrisCarDetail</strong>
 <div>
 <a href="#pricing">Cennik</a>
-<a href="#packages">Pakiety</a>
+<a href="#stats">Statystyki</a>
+<a href="#testimonials">Opinie</a>
+<a href="#cars">Auta</a>
 <a href="#contact">Kontakt</a>
 </div>
 </nav>
@@ -74,7 +96,7 @@ footer{text-align:center;padding:60px 20px;opacity:.7}
 <header>
 <div class="hero">
 <h1>Auto Detailing <span>Premium</span></h1>
-<p>Nie tylko mycie – *perfekcja w każdym detalu*.</p>
+<p>Perfekcja widoczna w każdym detalu.</p>
 <a class="btn" onclick="document.getElementById('pricing').scrollIntoView({behavior:'smooth'})">Sprawdź cennik</a>
 </div>
 </header>
@@ -94,22 +116,30 @@ footer{text-align:center;padding:60px 20px;opacity:.7}
 </div>
 </section>
 
-<section id="gallery">
-<h2>🚗 Przykładowe auta</h2>
-<img src="https://images.pexels.com/photos/210019/pexels-photo-210019.jpeg" alt="Kia Optima" class="car-img">
-<p style="text-align:center;margin-top:8px;">Kia Optima – Grafitowy sedan</p>
-<img src="https://images.pexels.com/photos/170811/pexels-photo-170811.jpeg" alt="Hyundai i30" class="car-img">
-<p style="text-align:center;margin-top:8px;">Hyundai i30 – Szary hatchback</p>
-<img src="https://images.pexels.com/photos/210019/pexels-photo-210019.jpeg" alt="Skoda Fabia" class="car-img">
-<p style="text-align:center;margin-top:8px;">Škoda Fabia – Biały hatchback</p>
+<section id="stats">
+<h2>📊 Nasze osiągnięcia</h2>
+<div class="stats">
+<div class="stat"><h3 class="num" data-target="1200">0</h3><p>Zadowolonych klientów</p></div>
+<div class="stat"><h3 class="num" data-target="450">0</h3><p>Aut w detailing</p></div>
+<div class="stat"><h3 class="num" data-target="98">0</h3><p>% Satysfakcji</p></div>
+</div>
 </section>
 
-<section id="packages">
-<h2>🎁 Pakiety usług</h2>
-<div style="text-align:center;margin-top:20px;">
-  <p>Basic – 299 zł</p>
-  <p>Premium – 599 zł</p>
-  <p>VIP – 999 zł</p>
+<section id="testimonials">
+<h2>⭐ Opinie klientów</h2>
+<div class="testimonials">
+  <div class="testimonial"><div class="stars">★★★★★</div><p>Najlepszy detailing jaki widziałem. Auto wygląda jak nowe!</p></div>
+  <div class="testimonial"><div class="stars">★★★★☆</div><p>Bardzo dokładne mycie wnętrza, polecam każdemu!</p></div>
+  <div class="testimonial"><div class="stars">★★★★★</div><p>Szybko, profesjonalnie i efekt WOW! Na pewno wrócę.</p></div>
+</div>
+</section>
+
+<section id="cars">
+<h2>🚗 Przykładowe auta</h2>
+<div style="display:grid;gap:24px;margin-top:30px;">
+<div><img src="https://images.pexels.com/photos/170811/pexels-photo-170811.jpeg" alt="Hyundai i30 szary" class="car-img"><p style="text-align:center;font-size:18px;">Hyundai i30 – Szary hatchback</p></div>
+<div><img src="https://images.pexels.com/photos/1402787/pexels-photo-1402787.jpeg" alt="Kia Optima grafit" class="car-img"><p style="text-align:center;font-size:18px;">Kia Optima – Grafitowy sedan</p></div>
+<div><img src="https://images.pexels.com/photos/210019/pexels-photo-210019.jpeg" alt="Skoda Fabia biała" class="car-img"><p style="text-align:center;font-size:18px;">Škoda Fabia – Biały hatchback</p></div>
 </div>
 </section>
 
@@ -118,7 +148,7 @@ footer{text-align:center;padding:60px 20px;opacity:.7}
 <form>
 <input placeholder="Imię">
 <input placeholder="Telefon">
-<textarea placeholder="Wyślij nam wiadomość"></textarea>
+<textarea placeholder="Twoja wiadomość"></textarea>
 <button>Wyślij</button>
 </form>
 </section>
@@ -128,12 +158,24 @@ footer{text-align:center;padding:60px 20px;opacity:.7}
 <a href="tel:+48790292162" class="call">Zadzwoń</a>
 
 <script>
-// custom cursor
+// CURSOR
 const cursor=document.querySelector(".cursor");
-document.addEventListener("mousemove",e=>{cursor.style.left=e.clientX+"px";cursor.style.top=e.clientY+"px";});
-document.querySelectorAll("a,button").forEach(el=>{
-  el.addEventListener("mouseenter",()=>cursor.classList.add("active"));
-  el.addEventListener("mouseleave",()=>cursor.classList.remove("active"));
+document.addEventListener("mousemove", e => {
+  cursor.style.left = e.clientX + "px";
+  cursor.style.top = e.clientY + "px";
+  });
+document.querySelectorAll("a,button").forEach(el => {
+  el.addEventListener("mouseenter", ()=>cursor.classList.add("active"));
+  el.addEventListener("mouseleave", ()=>cursor.classList.remove("active"));
+});
+
+// STATS
+const nums=document.querySelectorAll(".num");
+nums.forEach(num=>{
+const update=()=>{const target=+num.dataset.target;const current=+num.innerText;
+const increment=Math.ceil(target/200);
+if(current<target){num.innerText=current+increment;setTimeout(update,10);}else{num.innerText=target;}}
+update();
 });
 </script>
 
