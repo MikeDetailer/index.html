@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>KrisCarDetail – Auto Detailing Premium</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800;900&display=swap" rel="stylesheet">
+
+<style>
+:root{
+--blue:#1e3a8a;
+--neon:#3b82f6;
+--dark:#020617;
+--glass:rgba(255,255,255,.06);
+--text:#e5e7eb;
+}
+
+*{margin:0;padding:0;box-sizing:border-box;font-family:Inter,sans-serif}
+html{scroll-behavior:smooth}
+body{
+background:radial-gradient(circle at top,#0b1228,#020617 70%);
+color:var(--text);
+}
+
+/* NAV */
+nav{
+position:fixed;top:0;width:100%;
+padding:16px 28px;
+display:flex;justify-content:space-between;align-items:center;
+background:rgba(2,6,23,.75);
+backdrop-filter:blur(16px);
+z-index:999;
+}
+nav strong{font-size:20px}
+nav a{
+color:white;
+margin-left:22px;
+text-decoration:none;
+opacity:.7;
+}
+nav a:hover{opacity:1;color:var(--neon)}
+
+/* HERO */
+header{
+min-height:100vh;
+display:flex;
+align-items:center;
+justify-content:center;
+text-align:center;
+position:relative;
+overflow:hidden;
+}
+header::before{
+content:"";
+position:absolute;
+inset:-30%;
+background:
+radial-gradient(circle at top,var(--neon),transparent 45%),
+radial-gradient(circle at bottom,#1e40af,transparent 55%);
+opacity:.35;
+animation:float 12s infinite alternate;
+}
+@keyframes float{to{transform:translateY(-80px)}}
+
+.hero{
+position:relative;
+max-width:900px;
+padding:0 20px;
+}
+.hero h1{
+font-size:clamp(44px,7vw,92px);
+font-weight:900;
+letter-spacing:-2px;
+}
+.hero span{
+background:linear-gradient(135deg,var(--neon),#93c5fd);
+-webkit-background-clip:text;
+color:transparent;
+}
+.hero p{
+margin:30px auto;
+font-size:22px;
+max-width:700px;
+opacity:.9;
+}
+
+.btn{
+display:inline-block;
+padding:18px 52px;
+border-radius:60px;
+background:linear-gradient(135deg,var(--blue),var(--neon));
+color:white;
+font-weight:800;
+text-decoration:none;
+box-shadow:0 25px 70px #2563ebaa;
+}
+.btn:active{transform:scale(.96)}
+
+/* SECTIONS */
+section{
+max-width:1300px;
+margin:auto;
+padding:120px 20px;
+}
+h2{
+text-align:center;
+font-size:48px;
+margin-bottom:60px;
+background:linear-gradient(135deg,var(--neon),#93c5fd);
+-webkit-background-clip:text;
+color:transparent;
+}
+
+/* GLASS */
+.glass{
+background:var(--glass);
+backdrop-filter:blur(24px);
+border-radius:34px;
+padding:60px;
+box-shadow:0 40px 120px rgba(0,0,0,.6);
+}
+
+/* GRID */
+.grid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(240px,1fr));
+gap:34px;
+}
+
+/* CARD */
+.card{
+background:linear-gradient(135deg,#020617,#020617cc);
+border:1px solid rgba(255,255,255,.08);
+padding:36px;
+border-radius:28px;
+transition:.4s;
+text-align:center;
+}
+.card:hover{
+transform:translateY(-14px);
+border-color:var(--neon);
+box-shadow:0 30px 80px #2563eb55;
+}
+
+/* STEPS */
+.step{
+padding:32px;
+border-radius:26px;
+background:linear-gradient(135deg,#020617,#020617cc);
+text-align:center;
+font-size:18px;
+}
+
+/* FORM */
+form{
+max-width:640px;
+margin:auto;
+display:grid;
+gap:16px;
+}
+input,textarea{
+padding:18px;
+border:none;
+border-radius:14px;
+}
+button{
+padding:18px;
+border:none;
+border-radius:50px;
+background:linear-gradient(135deg,var(--blue),var(--neon));
+color:white;
+font-size:1.1rem;
+font-weight:800;
+}
+
+/* MAP */
+.map{
+margin-top:60px;
+border-radius:30px;
+overflow:hidden;
+}
+
+/* CALL */
+.call{
+position:fixed;
+bottom:22px;
+right:22px;
+background:linear-gradient(135deg,#22c55e,#4ade80);
+padding:16px 30px;
+border-radius:50px;
+color:white;
+font-weight:800;
+text-decoration:none;
+box-shadow:0 25px 60px #22c55e99;
+z-index:999;
+}
+
+/* FOOTER */
+footer{
+padding:90px 20px;
+text-align:center;
+opacity:.6;
+}
+
+/* REVEAL */
+.reveal{
+opacity:0;
+transform:translateY(40px);
+transition:1s ease;
+}
+.reveal.show{opacity:1;transform:none}
+</style>
+</head>
+
+<body>
+
+<nav>
+<strong>KrisCarDetail</strong>
+<div>
+<a href="#why">Dlaczego</a>
+<a href="#process">Proces</a>
+<a href="#contact">Kontakt</a>
+</div>
+</nav>
+
+<header>
+<div class="hero">
+<h1>Detailing <span>na najwyższym poziomie</span></h1>
+<p>
+Auto, które wygląda lepiej niż nowe. 
+Bez kompromisów. Bez półśrodków.
+</p>
+<a href="#contact" class="btn">Umów wizytę</a>
+</div>
+</header>
+
+<section id="why" class="reveal">
+<h2>Dlaczego KrisCarDetail</h2>
+<div class="glass grid">
+<div class="card">🧼 Detailing klasy premium</div>
+<div class="card">🧪 Sprawdzone kosmetyki</div>
+<div class="card">🔥 Efekt WOW gwarantowany</div>
+<div class="card">💎 Perfekcja w detalach</div>
+</div>
+</section>
+
+<section id="process" class="reveal">
+<h2>Jak wygląda proces</h2>
+<div class="grid">
+<div class="step">1️⃣ Oględziny auta</div>
+<div class="step">2️⃣ Mycie detailingowe</div>
+<div class="step">3️⃣ Czyszczenie wnętrza</div>
+<div class="step">4️⃣ Wosk / ochrona</div>
+<div class="step">5️⃣ Odbiór – efekt WOW 😜</div>
+</div>
+</section>
+
+<section id="contact" class="reveal">
+<h2>Umów wizytę</h2>
+<form action="mailto:krzysztofwitek2008@gmail.com" method="post">
+<input placeholder="Imię">
+<input placeholder="Telefon">
+<textarea placeholder="Jaką usługę wybierasz?"></textarea>
+<button>Wyślij</button>
+</form>
+
+<div class="map">
+<iframe 
+src="https://www.google.com/maps?q=Lgota%20Podgórska%2043&output=embed"
+width="100%" height="360" style="border:0;">
+</iframe>
+</div>
+</section>
+
+<footer>
+© 2025 KrisCarDetail | Lgota, ul. Podgórska 43
+</footer>
+
+<a href="tel:+48790292162" class="call">Zadzwoń</a>
+
+<script>
+const obs=new IntersectionObserver(e=>{
+e.forEach(x=>x.isIntersecting&&x.target.classList.add("show"))
+},{threshold:.2});
+document.querySelectorAll(".reveal").forEach(el=>obs.observe(el));
+</script>
+
+</body>
+</html>
