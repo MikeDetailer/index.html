@@ -39,7 +39,7 @@ header::before{content:"";position:absolute;inset:-20%;background:radial-gradien
 .hero span{background:linear-gradient(135deg,var(--neon),#93c5fd);-webkit-background-clip:text;color:transparent}
 .hero p{margin:28px auto;font-size:22px;opacity:.9}
 .btn{display:inline-block;padding:18px 60px;border-radius:80px;background:linear-gradient(135deg,var(--blue),var(--neon));color:white;font-weight:800;text-decoration:none;box-shadow:0 30px 90px #2563ebaa;transition:.3s;cursor:pointer}
-.btn:hover{transform:translateY(-5px);box-shadow:0 0 40px var(--neon)}
+.btn:hover{transform:translateY(-5px);box-shadow:0 0 50px var(--neon)}
 
 /* SECTIONS */
 section{max-width:1300px;margin:auto;padding:120px 20px}
@@ -47,8 +47,8 @@ h2{text-align:center;font-size:52px;margin-bottom:60px;background:linear-gradien
 
 /* CENNIK */
 .pricing{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:24px;margin-top:40px}
-.price-card{background:var(--glass);border-radius:24px;padding:24px;backdrop-filter:blur(20px);transition:.3s;cursor:pointer;text-align:center}
-.price-card:hover{transform:translateY(-8px);box-shadow:0 0 30px var(--neon)}
+.price-card{background:var(--glass);border-radius:24px;padding:24px;backdrop-filter:blur(20px);transition:.4s;cursor:pointer;text-align:center}
+.price-card:hover{transform:translateY(-8px) scale(1.03);box-shadow:0 0 50px var(--neon)}
 .price-card h4{font-size:20px;color:var(--orange);margin-bottom:8px}
 .price-card span{font-weight:700;color:var(--green);font-size:18px;display:block;margin-top:6px}
 
@@ -60,7 +60,7 @@ h2{text-align:center;font-size:52px;margin-bottom:60px;background:linear-gradien
 /* OPINIE */
 .testimonials{display:flex;overflow-x:auto;gap:24px;padding:20px 0}
 .testimonial{min-width:280px;background:var(--glass);padding:24px;border-radius:24px;backdrop-filter:blur(20px);transition:.3s}
-.testimonial:hover{transform:translateY(-6px);box-shadow:0 0 30px var(--neon)}
+.testimonial:hover{transform:translateY(-6px);box-shadow:0 0 50px var(--neon)}
 .testimonial p{font-size:16px;line-height:1.5;opacity:.9}
 .testimonial .stars{color:gold;font-size:18px;margin-bottom:10px}
 
@@ -115,8 +115,8 @@ footer{text-align:center;padding:60px 20px;opacity:.7}
 <section id="stats">
 <h2>📊 Nasze osiągnięcia</h2>
 <div class="stats">
-<div class="stat"><h3 class="num" data-target="1200">0</h3><p>Zadowolonych klientów</p></div>
-<div class="stat"><h3 class="num" data-target="450">0</h3><p>Aut w detailing</p></div>
+<div class="stat"><h3 class="num" data-target="100">0</h3><p>Zadowolonych klientów</p></div>
+<div class="stat"><h3 class="num" data-target="45">0</h3><p>Aut w detailing</p></div>
 <div class="stat"><h3 class="num" data-target="98">0</h3><p>% Satysfakcji</p></div>
 </div>
 </section>
@@ -150,7 +150,7 @@ const cursor=document.querySelector(".cursor");
 document.addEventListener("mousemove", e => {
   cursor.style.left = e.clientX + "px";
   cursor.style.top = e.clientY + "px";
-  });
+});
 document.querySelectorAll("a,button").forEach(el => {
   el.addEventListener("mouseenter", ()=>cursor.classList.add("active"));
   el.addEventListener("mouseleave", ()=>cursor.classList.remove("active"));
@@ -159,7 +159,9 @@ document.querySelectorAll("a,button").forEach(el => {
 // STATS
 const nums=document.querySelectorAll(".num");
 nums.forEach(num=>{
-const update=()=>{const target=+num.dataset.target;const current=+num.innerText;
+const update=()=>{
+const target=+num.dataset.target;
+const current=+num.innerText;
 const increment=Math.ceil(target/200);
 if(current<target){num.innerText=current+increment;setTimeout(update,10);}else{num.innerText=target;}}
 update();
